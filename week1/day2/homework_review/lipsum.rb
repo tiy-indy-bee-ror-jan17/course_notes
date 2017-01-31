@@ -9,17 +9,22 @@ unless (1..50).include? number_of_paragraphs
   number_of_paragraphs = 1
 end
 
+lipsums = {}
+lipsums["standard"] = "Standard's lipsum\n"
+lipsums["samuel"] = "bleep bleeping bleep, mother bleeper\n"
+lipsums["hipster"] = "Hipster ipsum\n"
+lipsums["starwars"] = "Dark side ipsum\n"
+lipsums["empire"] = "Handless ipsum\n"
+
+
+
 copy = true
 
-output =  if lipsum_wanted == "standard"
-            "Standard's lipsum\n" * number_of_paragraphs
-          elsif lipsum_wanted == "hipster"
-            "Hipster ipsum\n" * number_of_paragraphs
-          elsif lipsum_wanted == "samuel"
-            "bleep bleeping bleep, mother bleeper\n" * number_of_paragraphs
+output = if lipsums[lipsum_wanted]
+            lipsums[lipsum_wanted] * number_of_paragraphs
           else
             copy = false
-            "Please choose 'standard', 'samuel', or 'hipster'"
+            "Please choose one of " + lipsums.keys.join(", ")
           end
 
 puts output
