@@ -11,8 +11,8 @@ module BasicHumanoid
     "I would walk #{miles} miles ..."
   end
 
-  def kill(other)
-    other.kill! if killable.include? other.class
+  def kill(w)
+    w.kill! if killable.include? w.class
   end
 
   def killable
