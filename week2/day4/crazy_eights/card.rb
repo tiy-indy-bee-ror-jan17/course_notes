@@ -30,4 +30,8 @@ class Card
     end
   end
 
+  def to_s
+    "a #{face} of #{suit}"
+  end
+
 end

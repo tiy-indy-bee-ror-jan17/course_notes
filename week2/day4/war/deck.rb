@@ -3,13 +3,17 @@ class Deck
   attr_accessor :cards
 
   def initialize
+    fill_cards
+    shuffle
+  end
+
+  def fill_cards
     self.cards = []
     Card.suits.each do |suit|
       Card.faces.each do |face|
         cards << Card.new(face, suit)
       end
     end
-    shuffle
   end
 
   def shuffle

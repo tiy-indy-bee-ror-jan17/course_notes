@@ -10,6 +10,11 @@ class War
 
   def self.add_winner(win)
     @winners ||= []
+    # if @winners
+    #   @winners
+    # else
+    #   @winners = []
+    # end
     @winners << win
   end
 

@@ -22,7 +22,7 @@ class Player
   end
 
   def draw(num=1)
-    if deck.empty?
+    if deck.cards.length < num
       cycle
     end
     deck.deal(num)
