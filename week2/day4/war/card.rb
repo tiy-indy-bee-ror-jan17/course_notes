@@ -24,5 +24,9 @@ class Card
     value > card.value
   end
 
+  def ==(card)
+    face == card.face && suit == card.suit
+  end
+
 
 end
