@@ -1,0 +1,8 @@
+source 'https://rubygems.org' do
+
+  gem 'tty'
+  gem 'pry'
+  gem 'activerecord'
+  gem 'sqlite3'
+
+end
