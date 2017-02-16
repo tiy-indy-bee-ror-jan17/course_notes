@@ -17,7 +17,7 @@ ActiveRecord::Base.establish_connection(
   :database => 'example.sqlite3'
 )
 
-# binding.pry
+binding.pry
 
 Team.order(wins: :desc).each do |team|
   puts "#{team.name} has won #{team.victories} games."
