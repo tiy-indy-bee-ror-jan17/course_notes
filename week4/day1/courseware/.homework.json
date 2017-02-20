@@ -1,0 +1,21 @@
+{
+    "name": "legacy_associations_and_validations",
+    "version": "1.0.0",
+    "title": "Legacy Associations and Validations",
+    "description": "Take an existing legacy codebase with no associations or validations and add them.",
+    "difficultyModes": [
+        "Normal",
+        "Hard",
+        "Nightmare"
+    ],
+    "keywords": [
+        "Databases",
+        "ActiveRecord",
+        "Associations",
+        "Validations",
+        "git branch",
+        "git merge",
+        "Legacy Code",
+        "TDD"
+    ]
+}
