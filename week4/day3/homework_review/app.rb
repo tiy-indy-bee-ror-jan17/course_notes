@@ -1,3 +1,7 @@
+require_relative 'standard'
+require_relative 'samuel'
+require_relative 'hipster'
+
 class App
 
   attr_accessor :env, :params
@@ -12,7 +16,7 @@ class App
   end
 
   def define_params
-    parts = env['REQUEST_PATH'].split("/").reject{|a| a == ""}
+    parts = env['PATH_INFO'].split("/").reject{|a| a == ""}
     @params = {
       controller: parts[0],
       id: parts[1],
@@ -22,9 +26,13 @@ class App
 
   def response
     if params[:controller] == "lipsums"
-      ['200', headers, ["Pick between standard, samuel and hipster"]]
-    elsif %w(standard samuel hipster).include? controller.downcase
-      ['200', headers, [Object.const_get(controller.capitalize).call(params[:id])]]
+      ['200', headers, ["Please pick between standard, samuel, and hipster"]]
+    elsif %w(standard samuel hipster).include? params[:controller].downcase
+      ['200', headers, [Object.const_get(params[:controller].capitalize).call(params[:id])]]
+    elsif params[:controller] == "current_time"
+      ['200', headers, [Time.now.strftime("%A, %d %b %Y %l:%M %p")]]
+    else
+      ['404', headers, ["We're sorry. We couldn't that."]]
     end
   end
 
