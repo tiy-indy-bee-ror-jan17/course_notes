@@ -1,0 +1,16 @@
+<h1>Hello from visitors#show</h1>
+
+<p>
+  This is the <%= params[:id].to_i * 12 %> show page.
+</p>
+
+<a href="/">Back to home</a>
+<%= link_to "Back to home", root_path %>
+
+<ul>
+  <% @breeds.each do |breed| %>
+    <li class="item">
+      <%= breed %>
+    </li>
+  <% end %>
+</ul>
