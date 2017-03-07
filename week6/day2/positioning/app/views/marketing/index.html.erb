@@ -1,0 +1,27 @@
+<header>
+  <h1><%= @post.title %></h1>
+</header>
+<main>
+  <article>
+    <%= simple_format @post.body %>
+  </article>
+  <aside>
+    <div id="author">
+      <h3>About <%= @post.user.name %></h3>
+      <p>
+        <%= image_tag @post.user.image %>
+        <!-- <img src="/assets/cage.jpg" alt="Caaaaagggggeee" /> -->
+        <%= @post.user.bio %>
+      </p>
+    </div>
+    <ul>
+      <% @recent_posts.each do |post| %>
+        <li>
+          <%= link_to post.title, post %>
+          <!-- <%= link_to post.title, post_path(post) %> -->
+          <!-- <a href="/posts/<%= post.id %>"><%= post.title %></a> -->
+        </li>
+      <% end %>
+    </ul>
+  </aside>
+</main>

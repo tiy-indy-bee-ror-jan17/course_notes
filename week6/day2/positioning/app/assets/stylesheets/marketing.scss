@@ -1,0 +1,120 @@
+// Place all the styles related to the marketing controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  font-family: Helvetica, sans-serif;
+  margin: 0px;
+}
+
+nav {
+  background-color: rgba(3, 3, 3, 1);
+  color: #fff;
+
+  #logo {
+    padding-top: 18px;
+    float: left;
+    padding-left: 20px;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  ul {
+    float: right;
+    list-style-type: none;
+
+    li {
+      display: inline-block;
+
+      a {
+        font-weight: lighter;
+        padding: 10px;
+      }
+    }
+  }
+
+}
+
+footer {
+  background-color: #c0c0c0;
+  padding: 10px 50px;
+  /* top right bottom left */
+  display: flex;
+
+  address {
+    flex: 3;
+    font-style: normal;
+    ul {
+      list-style-type: none;
+      padding: 0px;
+      text-align: left;
+
+      li {
+        font-size: 12px;
+      }
+
+    }
+  }
+  form {
+      flex: 6;
+      text-align: center;
+      * {
+        margin-right: auto;
+        margin-left: auto;
+        display: block;
+      }
+  }
+  ul {
+    flex: 3;
+    list-style-type: none;
+    text-align: right;
+    font-size: 12px;
+  }
+}
+
+header {
+  height: 250px;
+  background-image: image-url('kevin-young-7002.jpg');
+  background-size: cover;
+  padding: 200px;
+  h1 {
+    margin: 0px;
+    text-align: center;
+    color: red;
+    font-weight: bolder;
+    font-style: italic;
+  }
+}
+
+main {
+  display: flex;
+  article {
+    flex: 8;
+    padding: 10px 10px 10px 50px;
+  }
+  aside {
+    flex: 4;
+    padding: 10px 50px 10px 10px;
+    background-color: powderblue;
+    h3 {
+      background-color: goldenrod;
+    }
+    #author img {
+      float: right;
+      width: 75px;
+      margin: 0px 0px 20px 20px;
+      // background-color: red;
+    }
+  }
+}
+
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
