@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Positioning</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="clearfix">
+      <a href="#" id="logo">LOGO</a>
+      <ul>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Archives</a></li>
+        <li><a href="#">Careers</a></li>
+      </ul>
+    </nav>
+    <%= yield %>
+    <footer>
+      <address>
+        <h6>The Iron Yard</h6>
+        <ul>
+          <li>
+            475 East Market Street
+          </li>
+          <li>
+            Indianapolis, IN 46204
+          </li>
+        </ul>
+      </address>
+      <form>
+        <h6>Contact Us</h6>
+        <input type="text" name="email" value="Hey" />
+        <textarea name="body">Hi.</textarea>
+      </form>
+      <ul>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Archives</a></li>
+        <li><a href="#">Careers</a></li>
+      </ul>
+    </footer>
+  </body>
+</html>

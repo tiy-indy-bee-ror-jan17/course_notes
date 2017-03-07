@@ -1,0 +1,10 @@
+<main>
+  <article>
+
+    <h2>Archive</h2>
+
+    <% @posts.each do |post| %>
+      <h6><%= link_to post.title, post %></h6>
+    <% end %>
+  </article>
+</main>
