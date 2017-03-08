@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lander</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+  </head>
+
+  <body>
+    <nav>
+      <a href="#" id="logo">Your Logo</a>
+      <ul>
+        <li>
+          <a href="#">Home</a>
+        </li>
+        <li>
+          <a href="#">About</a>
+        </li>
+        <li>
+          <a href="#">Contact</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="jumbotron">
+      <h1>Simple pricing you can understand</h1>
+    </div>
+    <%= yield %>
+    <footer>
+      <p>
+        This page proudly hosted on <a href="http://rubyonrails.org">Rails</a>.
+      </p>
+    </footer>
+  </body>
+</html>
