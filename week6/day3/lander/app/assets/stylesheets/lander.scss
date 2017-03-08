@@ -1,0 +1,148 @@
+// Place all the styles related to the lander controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// body {
+//   margin: 0;
+//   font-family: Helvetica, sans-serif;
+// }
+
+* {
+  border: 1px solid red;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+
+nav.navbar {
+  margin-bottom: 0px;
+  border-radius: 0px !important;
+  background-color: white;
+  font-size: 0.8em;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.jumbotron {
+  background-image: image-url("background.jpg");
+  background-size: contain;
+  display: flex;
+  align-items: center;
+  h1 {
+    margin: 0px auto;
+    color: white;
+    font-weight: lighter;
+  }
+}
+
+#tables {
+  display: flex;
+  justify-content: center;
+  .pricing {
+    width: 20%;
+    padding: 20px;
+    text-align: center;
+    header {
+      padding: 10px;
+      text-transform: uppercase;
+      color: white;
+      h2, h5, h6 {
+        margin: 0px;
+      }
+      h2 {
+        font-size: 2.5em;
+      }
+    }
+    ul {
+      border-left: 1px solid grey;
+      border-right: 1px solid grey;
+      background-color: lightgrey;
+      padding-left: 0px;
+      list-style-type: none;
+      margin: 0px;
+      li {
+        padding: 5px 0px;
+        border-bottom: 1px solid grey;
+      }
+      li:last-child {
+          border-bottom: none;
+      }
+    }
+    .button {
+      border-left: 1px solid grey;
+      border-right: 1px solid grey;
+      border-bottom: 1px solid grey;
+      padding: 20px;
+      a {
+        border: 1px solid grey;
+        padding: 5px;
+        border-radius: 25px;
+        text-decoration: none;
+        color: #333;
+        font-weight: bolder;
+      }
+    }
+  }
+}
+
+#personal header {
+  background-color: green;
+}
+
+#small_business header {
+  background-color: blue;
+}
+
+#enterprise header {
+  background-color: black;
+}
+
+#faq {
+  columns: 2;
+  padding: 0px 15%;
+  h4 {
+    margin-top: 0px;
+  }
+
+  p {
+    padding-bottom: 20px;
+  }
+}
+
+footer {
+  background-color: #000;
+  color: grey;
+  text-align: center;
+  padding: 5px;
+  a {
+    color: white;
+  }
+}
+
+/* nav ul li */
+
+/* <div id="pricing" class="price"> */
+#pricing.price {
+
+}
+
+/* <div id="pricing">
+    <div class="price"> */
+#pricing .price {
+
+}
