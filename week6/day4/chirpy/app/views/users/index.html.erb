@@ -1,0 +1,17 @@
+<!-- <% @users.each_slice(4) do |row| %>
+  <div class="row">
+    <% row.each do |user| %>
+      <div class="col-xs-3">
+        <%= image_tag user.avatar, class: "img-responsive" %>
+      </div>
+    <% end %>
+  </div>
+<% end %> -->
+
+<% @users.each do |user| %>
+  <div class="col-md-3 col-sm-6">
+    <%= link_to user, class: "btn btn-default" do %>
+      <%= image_tag user.avatar, class: "img-responsive" %>
+    <% end %>
+  </div>
+<% end %>
