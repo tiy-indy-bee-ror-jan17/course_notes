@@ -5,13 +5,12 @@
     <% end %>
   </div>
   <div class="media-body">
-    <h2>Howdy</h2>
     <%= simple_format chirp.body %>
     <!-- <small>Chirped by <%= chirp.user.username %> <%= link_to "#{time_ago_in_words(chirp.created_at)} ago", controller: "chirps", action: "show", id: chirp.id %></small> -->
     <!-- <small>Chirped by <%= chirp.user.username %> <%= link_to "#{time_ago_in_words(chirp.created_at)} ago", "/chirps/#{chirp.id}" %></small> -->
     <!-- <small>Chirped by <%= chirp.user.username %> <%= link_to "#{time_ago_in_words(chirp.created_at)} ago", chirp_path(id: chirp.id) %></small> -->
     <!-- <small>Chirped by <%= chirp.user.username %> <%= link_to "#{time_ago_in_words(chirp.created_at)} ago", chirp_path(chirp.id) %></small> -->
     <!-- <small>Chirped by <%= chirp.user.username %> <%= link_to "#{time_ago_in_words(chirp.created_at)} ago", chirp_path(chirp) %></small> -->
-    <strong>Chirped by <%= link_to chirp.user.username, chirp.user, class: "btn btn-default" %> <%= link_to "#{time_ago_in_words(chirp.created_at)} ago", chirp %></strong>
+    <strong>Chirped by <%= link_to chirp.user.username, chirp.user, class: "btn btn-default" %> <%= link_to "#{time_ago_in_words(chirp.created_at)} ago", chirp %> :: <%= button_to "EXTERMINATE!!", chirp, method: :delete, class: "btn btn-danger" %></strong>
   </div>
 </div>

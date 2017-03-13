@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170309142241) do
+ActiveRecord::Schema.define(version: 20170313132221) do
 
   create_table "chirps", force: :cascade do |t|
     t.integer  "user_id"
@@ -54,8 +54,10 @@ ActiveRecord::Schema.define(version: 20170309142241) do
     t.string   "username"
     t.text     "bio"
     t.string   "avatar"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "followers_count", default: 0
+    t.integer  "followees_count", default: 0
   end
 
 end
