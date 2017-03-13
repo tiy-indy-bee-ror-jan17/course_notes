@@ -45,6 +45,18 @@
     <div class="container">
       <%= yield %>
     </div>
+    <div class="container-fluid">
+      <div class="row">
+        <% @popular_users.each do |user| %>
+          <div class="col-md-3">
+            <%= link_to user do %>
+              <%= image_tag user.avatar, class: "img-responsive" %>
+              <h6><%= user.username %></h6>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
 
   </body>
 </html>
