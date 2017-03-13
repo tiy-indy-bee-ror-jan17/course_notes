@@ -32,13 +32,9 @@
         <li><%= link_to "Users", users_path %></li>
         <li><a href="#">About</a></li>
       </ul>
-      <form class="navbar-form navbar-right">
-        <div class="form-group has-feedback">
-          <input type="text" class="form-control" placeholder="Search">
-          <i class="glyphicon glyphicon-search form-control-feedback"></i>
-
-        </div>
-      </form>
+      <div class="navbar-right">
+        <%= link_to "Chirp!", new_chirp_path, class: "btn btn-success" %>
+      </div>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

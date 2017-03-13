@@ -9,6 +9,8 @@
       <div class="col-md-9">
         <h2><%= @user.username %></h2>
         <%= simple_format @user.bio %>
+        <h3>Chirps</h3>
+        <%= render @user.chirps %>
       </div>
     </div>
   </div>

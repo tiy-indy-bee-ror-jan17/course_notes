@@ -1,0 +1,17 @@
+<h1>Chirp away!</h1>
+
+<%= form_for @chirp do |f| %>
+
+  <div>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
+  <div>
+    <%= f.label :user_id %>
+    <%= f.select :user_id, User.all.collect{|u| [u.username, u.id]} %>
+  </div>
+  <div>
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+
+<% end %>
