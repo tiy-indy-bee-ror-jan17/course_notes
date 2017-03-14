@@ -1,29 +1,9 @@
-<% if @user.errors.any? %>
-  <div class="bg-danger col-xs-12">
-    <ul class="list-unstyled">
-      <% @user.errors.full_messages.each do |message| %>
-        <li>
-          <%= message %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+<%= simple_form_for @user do |f| %>
 
-<%= form_for @user do |f| %>
-  <div>
-    <%= f.label :username %>
-    <%= f.text_field :username %>
-  </div>
-  <div>
-    <%= f.label :avatar %>
-    <%= f.text_field :avatar %>
-  </div>
-  <div>
-    <%= f.label :bio %>
-    <%= f.text_area :bio %>
-  </div>
-  <div>
-    <%= f.submit class: "btn btn-primary" %>
-  </div>
+  <%= f.input :username %>
+  <%= f.input :password %>
+  <%= f.input :avatar %>
+  <%= f.input :bio %>
+  <%= f.button :submit %>
+
 <% end %>

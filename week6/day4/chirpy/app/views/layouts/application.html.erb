@@ -33,12 +33,27 @@
         <li><a href="#">About</a></li>
       </ul>
       <div class="navbar-right">
-        <%= link_to "Chirp!", new_chirp_path, class: "btn btn-success" %>
+        <% if current_user %>
+          <%= link_to "Chirp!", new_chirp_path, class: "btn btn-success" %>
+          <%= link_to "Logout!", logout_path, method: :delete, class: "btn btn-danger" %>
+        <% else %>
+          <%= link_to "Login!", login_path, class: "btn btn-primary" %>
+          <%= link_to "Signup!", new_user_path, class: "btn btn-primary" %>
+        <% end %>
       </div>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
     <div class="container">
+      <% if flash.any? %>
+        <% flash.each do |klass, message| %>
+          <div class="alert alert-<%= klass %>" role="alert">
+            <p>
+              <%= message %>
+            </p>
+          </div>
+        <% end %>
+      <% end %>
       <%= yield %>
     </div>
     <div class="container-fluid">

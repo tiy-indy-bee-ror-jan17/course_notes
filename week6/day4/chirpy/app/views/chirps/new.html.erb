@@ -1,17 +1,14 @@
 <h1>Chirp away!</h1>
 
-<%= form_for @chirp do |f| %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-4">
+      <%= simple_form_for @chirp, html: {class: "form-horizontal"} do |f| %>
 
-  <div>
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-  </div>
-  <div>
-    <%= f.label :user_id %>
-    <%= f.select :user_id, User.all.collect{|u| [u.username, u.id]} %>
-  </div>
-  <div>
-    <%= f.submit class: "btn btn-primary" %>
-  </div>
+        <%= f.input :body %>
+        <%= f.button :submit %>
 
-<% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

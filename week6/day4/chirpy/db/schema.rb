@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170313132221) do
+ActiveRecord::Schema.define(version: 20170314135026) do
 
   create_table "chirps", force: :cascade do |t|
     t.integer  "user_id"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20170313132221) do
     t.datetime "updated_at",                  null: false
     t.integer  "followers_count", default: 0
     t.integer  "followees_count", default: 0
+    t.string   "password_digest"
   end
 
 end
