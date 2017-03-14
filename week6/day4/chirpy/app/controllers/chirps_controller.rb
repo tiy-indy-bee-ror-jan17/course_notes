@@ -1,5 +1,8 @@
 class ChirpsController < ApplicationController
 
+  before_action :require_user, only: [:new, :create, :destroy]
+  before_action :is_owner, only: [:destroy]
+
   def index
     @chirps = Chirp.page(params[:page])
   end
@@ -13,7 +16,7 @@ class ChirpsController < ApplicationController
   end
 
   def create
-    @chirp = Chirp.new(chirp_params)
+    @chirp = current_user.chirps.new(chirp_params)
     if @chirp.save
       redirect_to :root
     else
@@ -22,7 +25,6 @@ class ChirpsController < ApplicationController
   end
 
   def destroy
-    @chirp = Chirp.find(params[:id])
     @chirp.destroy
     redirect_to :root
   end
@@ -31,7 +33,15 @@ class ChirpsController < ApplicationController
 
   def chirp_params
     # {chirp: {user_id: , body:}}
-    params.require(:chirp).permit(:user_id, :body)
+    params.require(:chirp).permit(:body)
+  end
+
+  def is_owner
+    @chirp = current_user.chirps.find_by(id: params[:id])
+    unless @chirp && @chirp.user == current_user
+      flash[:danger] = "That's not your chirp, bucky"
+      redirect_to :root
+    end
   end
 
 end
