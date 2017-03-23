@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+  api_root = "https://sleepy-gorge-91783.herokuapp.com/"
+
   // Utility Methods
 
   function set_token(token) {
@@ -11,14 +13,14 @@ $(document).ready(function(){
   }
 
   function log_out(){
-    localStorage.setItem('token', null)
+    localStorage.removeItem('token')
   }
 
   function signed_in() {
-    if(get_token() != null) {
-      return true
-    } else {
+    if(localStorage.getItem('token') === null) {
       return false
+    } else {
+      return true
     }
   }
 
@@ -36,26 +38,39 @@ $(document).ready(function(){
     $(form_id)[0].reset()
   }
 
-  api_root = "https://sleepy-gorge-91783.herokuapp.com/"
+  function chirp_display(chirp) {
+    return      `
+                  <div class="media" id="chirp-${chirp.id}">
+                    <div class="media-left">
+                      <img src="${chirp.user.image}" alt="${chirp.user.username}" class="img-circle media-object" />
+                    </div>
+                    <div class="media-body">
+                      <p>${chirp.body}</p>
+                      <p><small>Posted by ${chirp.user.username} <a href="#chirp-${chirp.id}" class="chirp_show">${moment(chirp.created_at).fromNow()}</a></small></p>
+                    </div>
+                  </div>
+                `
+  }
 
-  $.getJSON(api_root + "chirps/timeline")
-    .done(function(response){
-      response.forEach(function(chirp){
-        $('#chirp_list').append(
-          `
-            <div class="media">
-              <div class="media-left">
-                <img src="${chirp.user.image}" alt="${chirp.user.username}" class="img-circle media-object" />
-              </div>
-              <div class="media-body">
-                <p>${chirp.body}</p>
-                <p><small>Posted by ${chirp.user.username} ${moment(chirp.created_at).fromNow()}</small></p>
-              </div>
-            </div>
-          `
-        )
+  function timeline_url() {
+    if(signed_in()){
+      return api_root + "chirps?token=" + get_token()
+    } else {
+      return api_root + "chirps/timeline"
+    }
+  }
+
+  function populate_chirps() {
+    $('#chirp_list').empty()
+    $.getJSON(timeline_url())
+      .done(function(response){
+        response.forEach(function(chirp){
+          $('#chirp_list').append(
+            chirp_display(chirp)
+          )
+        })
       })
-    })
+    }
 
     $('#sign_up').on('submit', function(ev){
       ev.preventDefault()
@@ -63,6 +78,7 @@ $(document).ready(function(){
         .done(function(response){
           set_token(response.token)
           toggle_sign_in()
+          populate_chirps()
         })
     })
 
@@ -71,25 +87,57 @@ $(document).ready(function(){
       $.post(api_root + "chirps/create?token=" + get_token(), $(this).serialize())
         .done(function(chirp){
           $('#chirp_list').prepend(
-            `
-              <div class="media">
-                <div class="media-left">
-                  <img src="${chirp.user.image}" alt="${chirp.user.username}" class="img-circle media-object" />
-                </div>
-                <div class="media-body">
-                  <p>${chirp.body}</p>
-                  <p><small>Posted by ${chirp.user.username} ${moment(chirp.created_at).fromNow()}</small></p>
-                </div>
-              </div>
-            `
+            chirp_display(chirp)
           )
           reset_form('#post_chirp')
         })
     })
 
+    $('#sign_out').on('click', function(ev){
+      ev.preventDefault()
+      log_out()
+      toggle_sign_in()
+      populate_chirps()
+    })
+
+    $('#sign_in').on('submit', function(ev){
+      ev.preventDefault()
+      $.post(api_root + "login", $(this).serialize())
+        .done(function(response){
+          set_token(response.token)
+          reset_form('#sign_in')
+          toggle_sign_in()
+          populate_chirps()
+        })
+    })
+
+    $(document).on('click', '.chirp_show', function(ev){
+      // ev.preventDefault()
+      id_to_fetch = $(ev.target).attr("href")
+      console.log($(id_to_fetch).html())
+      $('#modal_one .modal-body').html($(id_to_fetch).html())
+      $('#modal_one').modal('show')
+    })
+
+    function first_load(){
+      $('#chirp_list').empty()
+      $.getJSON(timeline_url())
+        .done(function(response){
+          response.forEach(function(chirp){
+            $('#chirp_list').append(
+              chirp_display(chirp)
+            )
+          })
+          if(window.location.hash){
+            $('a[href="' + window.location.hash + '"]').click()
+          }
+        })
+    }
+
 
 
   toggle_sign_in()
+  first_load()
 
 
 })
