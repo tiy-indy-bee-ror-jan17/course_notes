@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Stylesheets go here. -->
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" type="text/css">
+
+  <link rel="stylesheet" type="text/css" href="global.css" />
+</head>
+<body>
+  <!-- Content goes here. -->
+  <div class="container" id="app">
+    <div class="row">
+      <div class="col-xs-8" id="left_well">
+        <div class="logged_in">
+          <form action="#" id="post_chirp">
+            <textarea name="body" placeholder="What's up?"></textarea>
+            <button type="submit" class="btn btn-primary">Chirp, chirp, MF</button>
+          </form>
+        </div>
+        <div id="chirp_list">
+
+        </div>
+      </div>
+      <div class="col-xs-4" id="sidebar">
+        <div class="logged_out">
+          <h4>Sign Up</h4>
+          <form id="sign_up" action="#">
+            <input type="text" placeholder="First Name" name="first_name" />
+            <input type="text" placeholder="Last Name" name="last_name" />
+            <input type="text" placeholder="Username" name="username" />
+            <input type="email" placeholder="Email Address" name="email" />
+            <input type="password" placeholder="Password" name="password" />
+            <button type="submit" class="btn btn-success">Sign Up!</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- Scripts go here. -->
+  <script type="text/javascript" src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js" type="text/javascript"></script>
+  <script type="text/javascript" src="app.js"></script>
+</body>
+</html>
